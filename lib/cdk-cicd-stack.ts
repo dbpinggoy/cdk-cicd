@@ -13,6 +13,7 @@ export class CdkCicdStack extends cdk.Stack {
       pipelineName: 'CicdPipeline',
       synth: new ShellStep('Synth', {
         input: source,
+        installCommands: ['npm i -g aws-cdk'],
         commands: ['npm ci', 'npx cdk synth']
       })
     });
